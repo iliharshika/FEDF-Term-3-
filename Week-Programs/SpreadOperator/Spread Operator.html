@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Merge & Copy</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 80px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+        #output {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Merge & Copy Arrays using Spread Operator</h2>
+
+    <button onclick="processArrays()">Show Result</button>
+
+    <div id="output"></div>
+
+    <script>
+        // Arrow function to process arrays
+        const processArrays = () => {
+
+            // Define arrays
+            const arr1 = [10, 20, 30];
+            const arr2 = [40, 50, 60];
+
+            // Merge arrays
+            const mergedArray = [...arr1, ...arr2];
+
+            // Copy array
+            const copiedArray = [...arr1];
+
+            // Display output
+            document.getElementById("output").innerHTML =
+                "Array 1: " + arr1 + "<br>" +
+                "Array 2: " + arr2 + "<br><br>" +
+                "Merged Array: " + mergedArray + "<br>" +
+                "Copied Array: " + copiedArray;
+        };
+    </script>
+
+</body>
+</html>
