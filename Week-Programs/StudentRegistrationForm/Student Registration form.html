@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Registration Form</title>
+
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(to right, #74ebd5, #ACB6E5);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-box {
+        background: white;
+        padding: 30px;
+        width: 380px;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        border-color: #1abc9c;
+        outline: none;
+    }
+
+    .row {
+        margin: 10px 0;
+    }
+
+    .inline {
+        display: flex;
+        gap: 10px;
+        font-size: 14px;
+    }
+
+    .inline input {
+        width: auto;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+
+    button {
+        width: 48%;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .submit-btn {
+        background: #1abc9c;
+    }
+
+    .reset-btn {
+        background: #7f8c8d;
+    }
+
+    button:hover {
+        opacity: 0.9;
+    }
+
+    .error {
+        color: red;
+        font-size: 12px;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="form-box">
+    <h2>Student Registration</h2>
+
+    <form id="form">
+
+        <input type="text" id="name" placeholder="Enter Full Name">
+        <div class="error" id="nameError"></div>
+
+        <input type="email" id="email" placeholder="Enter Email">
+        <div class="error" id="emailError"></div>
+
+        <input type="password" id="password" placeholder="Enter Password (min 6 chars)">
+        <div class="error" id="passError"></div>
+
+        <input type="date" id="dob">
+
+        <div class="row">
+            <strong>Gender:</strong>
+            <div class="inline">
+                <label><input type="radio" name="gender"> Male</label>
+                <label><input type="radio" name="gender"> Female</label>
+            </div>
+        </div>
+
+        <select>
+            <option>Select Course</option>
+            <option>B.Tech</option>
+            <option>B.Sc</option>
+            <option>B.Com</option>
+        </select>
+
+        <div class="row">
+            <strong>Skills:</strong>
+            <div class="inline">
+                <label><input type="checkbox"> HTML</label>
+                <label><input type="checkbox"> CSS</label>
+                <label><input type="checkbox"> Java</label>
+            </div>
+        </div>
+
+        <textarea placeholder="Enter Address"></textarea>
+
+        <div class="buttons">
+            <button type="submit" class="submit-btn">Submit</button>
+            <button type="reset" class="reset-btn">Reset</button>
+        </div>
+
+    </form>
+</div>
+
+<script>
+document.getElementById("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    let valid = true;
+
+    // Clear errors
+    document.getElementById("nameError").innerText = "";
+    document.getElementById("emailError").innerText = "";
+    document.getElementById("passError").innerText = "";
+
+    if (name === "") {
+        document.getElementById("nameError").innerText = "Name is required";
+        valid = false;
+    }
+
+    if (email === "") {
+        document.getElementById("emailError").innerText = "Email is required";
+        valid = false;
+    }
+
+    if (password.length < 6) {
+        document.getElementById("passError").innerText = "Minimum 6 characters required";
+        valid = false;
+    }
+
+    if (valid) {
+        alert("Registration Successful ✅");
+    }
+});
+</script>
+
+</body>
+</html>
