@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Form</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 80px;
+        }
+        input {
+            padding: 8px;
+            margin: 8px;
+            width: 220px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+        #output {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Enter Employee Details</h2>
+
+    <input type="text" id="name" placeholder="Enter Name"><br>
+    <input type="number" id="sal" placeholder="Enter Salary"><br>
+    <input type="number" id="age" placeholder="Enter Age"><br>
+    <input type="text" id="designation" placeholder="Enter Designation"><br><br>
+
+    <button onclick="showDetails()">Submit</button>
+
+    <div id="output"></div>
+
+    <script>
+        // Arrow function
+        const showDetails = () => {
+
+            // Creating object from user input
+            const employee = {
+                name: document.getElementById("name").value.trim(),
+                sal: document.getElementById("sal").value.trim(),
+                age: document.getElementById("age").value.trim(),
+                designation: document.getElementById("designation").value.trim()
+            };
+
+            // Object Destructuring
+            const { name, sal } = employee;
+
+            // Display result
+            document.getElementById("output").innerHTML =
+                "Employee Name: " + name + "<br>Employee Salary: " + sal;
+        };
+    </script>
+
+</body>
+</html>w
